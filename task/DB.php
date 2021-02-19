@@ -6,12 +6,6 @@
      private static $dbUsername='root';
      private static $dbPassword='root';
      private static $cont=null;
-    
-//    private static $dbName='eas_db';
-//    private static $dbHost='localhost';
-//    private static $dbUsername='root';
-//    private static $dbPassword='root';
-//    private static $cont=null;
  
 
     public function __construct() { die('Init function is not allowed');}

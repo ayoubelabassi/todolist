@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Task} from './task.model';
 
@@ -7,7 +7,7 @@ import {Task} from './task.model';
   providedIn: 'root',
 })
 export class TaskService {
-  private resourceURL = 'http://localhost:83/task/tasks.php?method=';
+  private resourceURL = 'http://localhost/task/tasks.php?method=';
 
   constructor(private http: HttpClient) {
   }
@@ -17,6 +17,9 @@ export class TaskService {
   }
 
   public saveTask(task: Task): Observable<any> {
-    return this.http.post(this.resourceURL + 'POST', task);
+    task.finished=task.finished+'';
+    let headers = new HttpHeaders();
+    headers = headers.append('Content-Type', 'application/json');
+    return this.http.post(this.resourceURL + 'POST', task, {headers: headers});
   }
 }
