@@ -1,0 +1,10 @@
+<div>
+    <div>
+        <div>
+            <input type="text" [(ngModel)]="task">
+        </div>
+        <div class="task" *ngFor="let item of tasks">
+            <ngx-task [(item)]="item"></ngx-task>
+        </div>
+    </div>
+</div>
