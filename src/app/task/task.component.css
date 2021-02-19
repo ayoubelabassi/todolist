@@ -1,0 +1,18 @@
+input{
+  zoom: 140%;
+}
+
+.task-container{
+  color: #000;
+  border-top: 1px solid #dededede;
+  padding: 10px 10px;
+}
+
+.task{
+  margin-left: 15px;
+}
+
+.task-finished{
+  text-decoration: line-through;
+  color: #a3a3a3de;
+}

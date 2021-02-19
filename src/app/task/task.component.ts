@@ -1,17 +1,18 @@
-import { Component, Input, Output } from "@angular/core";
-import * as EventEmitter from "events";
+import {Component, Input, Output} from '@angular/core';
+import {Task} from './task.model';
 
 @Component({
-    selector: 'ngx-task',
-    templateUrl: './task.component.html'
+  selector: 'app-task',
+  templateUrl: './task.component.html',
+  styleUrls: ['./task.component.css']
 })
-export class TaskComponent{
+export class TaskComponent {
 
-    @Input("item")
-    public task:any;
+  @Input() item: Task = new Task();
 
-    @Output("item")
-    taskEvent: EventEmitter<any>;
-    constructor(){
-    }
+  constructor() {
+  }
+
+  public onCheck(): void {
+  }
 }

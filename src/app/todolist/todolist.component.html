@@ -1,10 +1,15 @@
 <div>
     <div>
-        <div>
-            <input type="text" [(ngModel)]="task">
+        <div class="input-group">
+            <input class="form-control" type="text" name="taskName" [(ngModel)]="task">
+          <div class="input-group-prepend">
+            <button class="btn btn-primary" (click)="addTask()" [disabled]="!task || !task.length">
+              <span>+</span>
+            </button>
+          </div>
         </div>
-        <div class="task" *ngFor="let item of tasks">
-            <ngx-task [(item)]="item"></ngx-task>
+        <div class="task" *ngFor="let taske of tasks">
+            <app-task [item]="taske"></app-task>
         </div>
     </div>
 </div>
