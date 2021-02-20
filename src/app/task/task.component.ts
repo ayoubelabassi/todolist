@@ -1,5 +1,4 @@
-import {Component, Input, Output} from '@angular/core';
-import * as EventEmitter from 'events';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {Task} from './task.model';
 
 @Component({
@@ -9,8 +8,10 @@ import {Task} from './task.model';
 })
 export class TaskComponent {
   @Input() item: Task = new Task();
+  @Output() completedChange = new EventEmitter<Task>();
   constructor() {
   }
   public onCheck(): void {
+    this.completedChange.emit(this.item);
   }
 }

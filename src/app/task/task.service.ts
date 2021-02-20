@@ -7,7 +7,7 @@ import {Task} from './task.model';
   providedIn: 'root',
 })
 export class TaskService {
-  private resourceURL = 'http://localhost/task/tasks.php?method=';
+  private resourceURL = 'http://localhost:83/task/tasks.php?method=';
 
   constructor(private http: HttpClient) {
   }

@@ -1,6 +1,6 @@
-import {Component, OnInit} from '@angular/core';
-import {Task} from '../task/task.model';
-import {TaskService} from '../task/task.service';
+import { Component, OnInit } from '@angular/core';
+import { Task } from '../task/task.model';
+import { TaskService } from '../task/task.service';
 
 @Component({
   selector: 'app-todo-list',
@@ -21,10 +21,7 @@ export class TodoListComponent implements OnInit {
     };
     this.tasks.push(t);
     this.task = '';
-
-    this.taskService.saveTask(t).subscribe((res) => {
-      this.loadTasks();
-    });
+    this.saveTask(t);
   }
 
   ngOnInit(): void {
@@ -39,6 +36,16 @@ export class TodoListComponent implements OnInit {
           item.finished = false;
         }
       });
+    });
+  }
+
+  public completeChange(event: Task): void {
+    this.saveTask(event);
+  }
+
+  public saveTask(ttd: Task) {
+    this.taskService.saveTask(ttd).subscribe((res) => {
+      this.loadTasks();
     });
   }
 }

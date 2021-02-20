@@ -1,6 +1,6 @@
 <div>
     <div>
-        <div class="input-group">
+        <div class="input-group mb-4">
             <input class="form-control" type="text" name="taskName" [(ngModel)]="task">
           <div class="input-group-prepend">
             <button class="btn btn-primary" (click)="addTask()" [disabled]="!task || !task.length">
@@ -9,7 +9,7 @@
           </div>
         </div>
         <div class="task" *ngFor="let taske of tasks">
-            <app-task [item]="taske"></app-task>
+            <app-task [item]="taske" (completedChange)="completeChange($event)"></app-task>
         </div>
     </div>
 </div>
